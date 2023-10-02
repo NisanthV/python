@@ -23,3 +23,8 @@ body{
 	border-radius: 50%;
 	transition: 1s;
 }
+.box:hover{
+	
+	transform: skew(60deg,30deg);
+	transition: 1s;
+}
