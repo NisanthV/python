@@ -1,0 +1,23 @@
+import datetime
+import os
+import time
+print(__file__)
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR2=os.path.dirname(os.path.abspath(__file__))
+t=os.path.join(BASE_DIR2,'templates')
+print(t)
+a=datetime.datetime.now()
+print(a)
+
+class p1:
+    x=10
+    _y=20
+    __z=30
+
+print(p1.x)
+print(p1._y)
+#print(p1.__z) we will get error if we put this code because it is producet we access that using nameing function
+#create object for name using name function
+p=p1()
+print(p._p1__z)
