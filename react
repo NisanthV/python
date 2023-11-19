@@ -1,0 +1,38 @@
+import React, { useState } from 'react';
+
+const App = () => {
+  const [questions, setQuestions] = useState([
+    'What is React?',
+    'How does React handle state?',
+    'What is JSX?',
+  ]);
+
+  const [newQuestion, setNewQuestion] = useState('');
+
+  const handleInputChange = (e) => {
+    setNewQuestion(e.target.value);
+  };
+
+  const handlePostQuestion = () => {
+    setQuestions([...questions, newQuestion]);
+    setNewQuestion('');
+  };
+
+  return (
+    <div>
+      <h1>Simple React Program</h1>
+      <div>
+        <h2>Questions</h2>
+        <ul>
+          {questions.map((question, index) => (
+            <li key={index}>{question}</li>
+          ))}
+        </ul>
+        <input type="text" value={newQuestion} onChange={handleInputChange} />
+        <button onClick={handlePostQuestion}>Add Question</button>
+      </div>
+    </div>
+  );
+};
+
+export default App;
