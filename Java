@@ -1,0 +1,46 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EducationalInstitutionTest {
+
+    public static void main(String[] args) {
+        // Set the path to the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        // Create a new instance of the ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the login page of the educational institution application
+        driver.get("http://example.com/login");
+
+        // Test Case: User Login
+        testUserLogin(driver);
+
+        // Close the browser
+        driver.quit();
+    }
+
+    private static void testUserLogin(WebDriver driver) {
+        // Locate the username and password fields
+        WebElement usernameField = driver.findElement(By.id("username"));
+        WebElement passwordField = driver.findElement(By.id("password"));
+
+        // Enter valid credentials
+        usernameField.sendKeys("your_username");
+        passwordField.sendKeys("your_password");
+
+        // Locate and click the login button
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
+
+        // Verify successful login by checking if a dashboard element is present
+        WebElement dashboardElement = driver.findElement(By.id("dashboard"));
+        if (dashboardElement.isDisplayed()) {
+            System.out.println("Login Test Passed!");
+        } else {
+            System.out.println("Login Test Failed!");
+        }
+    }
+}
