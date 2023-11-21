@@ -44,3 +44,28 @@ public class EducationalInstitutionTest {
         }
     }
 }
+Algorithm: User Login Test for Educational Institution Application
+
+1. Set up WebDriver:
+   a. Set system property for ChromeDriver executable.
+   b. Create a new instance of ChromeDriver.
+
+2. Navigate to the Login Page:
+   a. Open the educational institution application login page.
+
+3. Execute User Login Test:
+   a. Call the testUserLogin method.
+
+4. User Login Test:
+   a. Locate username and password input fields.
+   b. Enter valid credentials.
+   c. Locate and click the login button.
+
+5. Verify Login Result:
+   a. Locate the dashboard element indicating a successful login.
+   b. Check if the dashboard element is displayed.
+   c. If displayed, print "Login Test Passed!" to the console.
+   d. If not displayed, print "Login Test Failed!" to the console.
+
+6. Close the Browser:
+   a. Quit the WebDriver, closing the browser.
