@@ -1,0 +1,19 @@
+open Pi online simulator •n
+Select Pi pico
+Scroll Jonn to Select Starlet lcmplate Micropython
+Click on the + symbol
+Add LED and following connections
+GP5-anode
+GND2-cathode
+
+write the program and the project
+
+start the simulation by pressing play
+
+from machine irngv»rt Pin
+from utrme trnport slccp
+print("Hello. Pi Pico'")
+led=Pin(5,Pin.OUT)
+while True:
+  led.toggle()
+  sleep(0.5)
