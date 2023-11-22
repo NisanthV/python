@@ -1,0 +1,52 @@
+import java.util.Arrays;
+class DistanceVectorRouter {
+    private int[][] distanceMatrix;
+    private int numNodes;
+
+    public DistanceVectorRouter(int numNodes) {
+        this.numNodes = numNodes;
+        this.distanceMatrix = new int[numNodes][numNodes];
+        for (int i = 0; i < numNodes; i++) Arrays.fill(distanceMatrix[i], Integer.MAX_VALUE);
+        for (int i = 0; i < numNodes; i++) distanceMatrix[i][i] = 0;
+    }
+
+    public void addLink(int node1, int node2, int cost) {
+        distanceMatrix[node1][node2] = cost;
+        distanceMatrix[node2][node1] = cost;
+    }
+
+    public void updateRoutingTable() {
+        for (int k = 0; k < numNodes; k++)
+            for (int i = 0; i < numNodes; i++)
+                for (int j = 0; j < numNodes; j++)
+                    if (distanceMatrix[i][k] != Integer.MAX_VALUE && distanceMatrix[k][j] != Integer.MAX_VALUE)
+                        distanceMatrix[i][j] = Math.min(distanceMatrix[i][j], distanceMatrix[i][k] + distanceMatrix[k][j]);
+    }
+
+    public void printRoutingTable(int node) {
+        System.out.println("Routing table for Node " + node + ":");
+        for (int i = 0; i < numNodes; i++)
+            System.out.println("To Node " + i + ": Distance = " + distanceMatrix[node][i]);
+    }
+}
+
+public class DistanceVector {
+    public static void main(String[] args) {
+        DistanceVectorRouter router = new DistanceVectorRouter(5);
+
+        router.addLink(0, 1, 2);
+        // router.addLink(0, 2, 4);
+        // router.addLink(1, 2, 1);
+        // router.addLink(1, 3, 7);
+        // router.addLink(2, 4, 3);
+        // router.addLink(3, 4, 1);
+
+        System.out.println("Initial Routing Tables:");
+        for (int i = 0; i < 1; i++) router.printRoutingTable(i);
+
+        router.updateRoutingTable();
+
+        System.out.println("\nUpdated Routing Tables:");
+        for (int i = 0; i < 1; i++) router.printRoutingTable(i);
+    }
+}
